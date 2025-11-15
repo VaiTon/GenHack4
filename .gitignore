@@ -1,0 +1,4 @@
+/data/
+
+# Jupyter Notebook export files
+*.html

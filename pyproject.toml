@@ -1,0 +1,20 @@
+[project]
+name = "genhack"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+    "contextily>=1.6.2",
+    "dask>=2025.11.0",
+    "geopandas>=1.1.1",
+    "hvplot>=0.12.1",
+    "ipykernel>=7.1.0",
+    "matplotlib>=3.10.7",
+    "netcdf4>=1.7.3",
+    "numpy>=2.3.4",
+    "pandas>=2.3.3",
+    "pip>=25.3",
+    "pyarrow>=22.0.0",
+    "rioxarray>=0.20.0",
+    "scipy>=1.16.3",
+    "xarray>=2025.10.1",
+]
