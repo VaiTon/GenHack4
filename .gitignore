@@ -1,4 +1,3 @@
 /data/
-
-# Jupyter Notebook export files
-*.html
+/processed/
+.ipynb_checkpoints/
