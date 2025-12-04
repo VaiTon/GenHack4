@@ -1,5 +1,12 @@
 # GenHack - ChefAI: Urban Heat Island Risk Prediction
 
+<p align="center">
+  <img src="logos/week1.png" width="120" />
+  <img src="logos/week2.png" width="120" />
+  <img src="logos/week3.png" width="120" />
+  <img src="logos/week4.png" width="120" />
+</p>
+
 **Team**: ChefAI
 
 - [@VaiTon](https://github.com/VaiTon)
