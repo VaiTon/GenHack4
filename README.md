@@ -1,6 +1,12 @@
 # GenHack - ChefAI: Urban Heat Island Risk Prediction
 
 **Team**: ChefAI
+
+- [@VaiTon](https://github.com/VaiTon)
+- [@andreeado](https://github.com/andreeado)
+- [@mpreda01](https://github.com/mpreda01)
+- [@Torna99](https://github.com/Torna99)
+
 **Project**: Predictive Modeling of Urban Heat Island (UHI) Risk Levels
 
 ## 🎯 Challenge Overview
