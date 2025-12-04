@@ -17,7 +17,7 @@ The goal is to understand and model local climate variations, bridging the gap b
 
 ## 📋 Project Overview
 
-This four-week journey explores the **Urban Heat Island (UHI) effect** in Emilia-Romagna, Italy, progressing from data exploration to predictive modeling. The project investigates how well satellite-based climate reanalysis (ERA5) captures urban heat patterns compared to ground-based weather station measurements.
+This four-week journey explores the **Urban Heat Island (UHI) effect** focusing on **Bologna and the Emilia-Romagna region** in northern Italy, progressing from data exploration to predictive modeling. The project investigates how well satellite-based climate reanalysis (ERA5) captures urban heat patterns compared to ground-based weather station measurements in this diverse landscape of urban centers, agricultural plains, and mountainous areas.
 
 ### Four-Week Structure
 
@@ -79,10 +79,11 @@ GenHack/
 
 ### 2. **ECA&D Station Data** (European Climate Assessment)
 
-- **Stations**: 70+ weather stations across Italy
+- **Stations**: 70+ weather stations in Emilia-Romagna region
 - **Variable**: TX (daily maximum temperature)
 - **Quality**: Ground truth measurements
 - **Format**: Text files with station metadata
+- **Coverage**: Bologna, Modena, Parma, and surrounding provinces
 
 ### 3. **DEGURBA Urbanization** (Eurostat)
 
@@ -126,8 +127,9 @@ GenHack/
 
 ### Week 3: Quantitative Discrepancy Analysis
 
+- **Study area**: Emilia-Romagna region (all provinces)
 - **19 quarterly periods** (2020-2023): capture seasonal variations
-- **Spatial join**: match 70+ ECA&D stations with ERA5 grid cells (nearest neighbor)
+- **Spatial join**: match 70+ ECA&D stations across the region with ERA5 grid cells (nearest neighbor)
 - **UHI computation**:
   - **ECA UHI**: Ground truth urban-rural temperature difference from stations
   - **ERA5 UHI**: Satellite-estimated urban-rural difference from reanalysis
