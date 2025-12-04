@@ -150,23 +150,13 @@ GenHack/
 
 ### Prerequisites
 
-```bash
-# Python 3.8+
-pip install -r requirements.txt
-```
+- **Python 3.12+**
+- **uv** - Python package installer ([install uv](https://github.com/astral-sh/uv))
 
 **Required packages**:
 
 ```
-pandas
-numpy
-matplotlib
-seaborn
-geopandas
-scikit-learn
-xgboost
-netCDF4
-xarray
+pandas numpy matplotlib seaborn geopandas scikit-learn xgboost netCDF4 xarray rioxarray tqdm
 ```
 
 ### Installation
@@ -176,6 +166,11 @@ xarray
 git clone <repository-url>
 cd GenHack
 
+# Create virtual environment and install dependencies with uv (fast!)
+uv venv  # create .venv
+uv sync  # install packages
+source .venv/bin/activate.fish  # or: source .venv/bin/activate (bash/zsh)
+
 # Extract data archive
 tar xvf genhack.tar.zst
 
@@ -184,32 +179,37 @@ wget -O data/degurba.csv <DEGURBA_CSV_URL>
 # Or manually download from: https://situas.istat.it/web/#/home/piu-consultati?id=73&dateFrom=2025-12-04
 # and save as data/degurba.csv
 
-# Install dependencies
-pip install pandas numpy matplotlib seaborn geopandas scikit-learn xgboost netCDF4 xarray
+# Open notebooks with VS Code (recommended)
+code .
 
-# Launch Jupyter
+# Or launch Jupyter Lab
+jupyter lab
+
+# Or use classic Jupyter Notebook
 jupyter notebook
 ```
 
 ### Running the Analysis
 
-**Week-by-week progression**:
+**Week-by-week progression** (open in VS Code or Jupyter Lab):
 
 ```bash
 # Week 1: Explore individual datasets
-jupyter notebook 1_exploration/gadm_exploration.ipynb
-jupyter notebook 1_exploration/era5_data_exploration.ipynb
-jupyter notebook 1_exploration/tx_data_exploration.ipynb
+1_exploration/gadm_exploration.ipynb
+1_exploration/era5_data_exploration.ipynb
+1_exploration/tx_data_exploration.ipynb
+# Week 1: Main notebook
+1_exploration/week1_team29.ipynb
 
 # Week 2: Visualize UHI in Bologna/Emilia-Romagna
-jupyter notebook 2_explain/week2_team29.ipynb
+2_explain/week2_team29.ipynb
 
 # Week 3: Compute ERA5 vs ground truth discrepancies
-jupyter notebook 3_metrics/week3_team29.ipynb
+3_metrics/week3_team29.ipynb
 # Output: processed/uhi_discrepancy_eca_era5_stats_all_regions.parquet
 
 # Week 4: Train ML classifiers for risk prediction
-jupyter notebook 4_model/week4_team29.ipynb
+4_model/week4_team29.ipynb
 ```
 
 **Key outputs**:
@@ -253,12 +253,6 @@ _Baseline (random guessing): 33.3% accuracy_
 5. **ERA5_UHI** (satellite UHI estimate) — **Moderate** (importance: 0.08)
    - ERA5's own UHI calculation has some predictive signal
 
-### Geographic Insights (Week 2)
-
-- **Bologna urban core**: +2-3°C warmer than surrounding countryside during summer days
-- **Po Valley plains**: Flatter areas show more pronounced UHI effects than mountainous regions
-- **Seasonal variation**: UHI intensity peaks in summer (June-August), minimal in winter
-
 ## 📍 Use Cases
 
 ### Urban Planning
@@ -278,33 +272,6 @@ _Baseline (random guessing): 33.3% accuracy_
 - **Evidence-based** zoning decisions for new developments
 - **Risk-stratified** building code requirements (cool roofs, etc.)
 - **Performance metrics** for city climate action plans
-
-## 🔧 Technical Details
-
-### Coordinate Systems
-
-- **ERA5 data**: EPSG:4326 (WGS84 lat/lon)
-- **Analysis CRS**: EPSG:3035 (LAEA Europe, equal-area)
-- **Output**: Reprojected to user preference
-
-### Data Processing
-
-- **Sample size**: 100,000 records (from 1.75M total)
-- **Missing values**: Dropped (complete case analysis)
-- **Class balance**: Enforced via quantile binning
-- **Feature scaling**: Applied for distance-based models
-
-### Model Configuration
-
-```python
-# Best model: Random Forest
-RandomForestClassifier(
-    n_estimators=100,
-    max_depth=15,
-    random_state=42,
-    n_jobs=-1
-)
-```
 
 ## 📝 License
 
@@ -328,4 +295,4 @@ For questions or collaboration opportunities, please open an issue in this repos
 
 ---
 
-**Note**: This is a research project for educational purposes. Predictions should be validated with domain experts before operational use in urban planning decisions.
+**Note**: This is a research project for educational purposes. The authors do not guarantee the accuracy or applicability of the models for operational use. Please refer to original data sources and domain experts for critical applications.
