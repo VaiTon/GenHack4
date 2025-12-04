@@ -184,7 +184,8 @@ uv venv  # create .venv
 uv sync  # install packages
 source .venv/bin/activate.fish  # or: source .venv/bin/activate (bash/zsh)
 
-# Extract data archive
+# Download and extract data archive
+# Download genhack.tar.zst from: https://drive.google.com/file/d/16F2AAG0bG-iARXSaO1rsOLKTZUmh2Es7/view?usp=sharing
 tar xvf genhack.tar.zst
 
 # Download DEGURBA urbanization data
